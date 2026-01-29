@@ -1,0 +1,25 @@
+<template>
+    <div>Hello I am Learning LWC</div>
+    <div>I Learned Data binding in salesforce now let me show you after hypen i have binded data from javascript - {fullname}</div>
+
+    <div>Following is representation of two way binding</div>
+
+    <!--Using styling of css and lightning components provided by salesforce-->
+
+
+  
+    <div class="slds-m-around_x-small">
+
+    <lightning-card title="Two way data binding">
+        <lightning-input type="text" label="Enter Course name" onkeyup={changeHandler}></lightning-input>
+        <div>{fullnameis} is learning {title} in salesforce</div>
+    </lightning-card></div>
+
+    <div class="slds-m-around_x-small">
+
+    <lightning-card title="Track properties">
+        <lightning-input type="text" label="Enter city" onkeyup={trackchangeHandler}></lightning-input>
+        <div>{address.city} is my city</div>
+    </lightning-card></div>
+
+</template>
