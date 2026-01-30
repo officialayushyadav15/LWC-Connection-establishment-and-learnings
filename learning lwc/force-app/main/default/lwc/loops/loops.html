@@ -1,0 +1,58 @@
+<template>
+
+    <!-- ================= FOR:EACH LOOP ================= -->
+    <lightning-card title="ForEach Loop">
+        <div class="slds-var-m-around_medium">
+
+            <!-- Looping through simple string array (cars) -->
+            <template for:each={cars} for:item="car">
+
+                <!-- key is mandatory to uniquely identify each DOM element -->
+                <ul key={car} class="list-border">
+                    <li class="list-item">
+                        <a href="#">{car}</a>
+                    </li>
+                </ul>
+
+                <!-- for loop we pass a key which identifies as a unique element -->
+            </template>
+
+        </div>
+    </lightning-card>
+
+    <!-- ================= ITERATOR LOOP ================= -->
+    <lightning-card title="Iterator Loop">
+        <div class="slds-var-m-around_medium">
+
+            <!-- iterator gives access to first & last properties -->
+            <template iterator:ceo={ceoList}>
+
+                <!-- Unique key using id from object -->
+                <div key={ceo.value.id} class="list-border">
+
+                    <!-- Display only for the FIRST record -->
+                    <div if:true={ceo.first} class="iterator-info">
+                        <strong>List of people and cities</strong>
+                    </div>
+
+                    <!-- Main list item -->
+                    <ul>
+                        <li class="list-item">
+                            <strong>{ceo.value.city} :</strong>
+                            {ceo.value.name}
+                        </li>
+                    </ul>
+
+                    <!-- Display only for the LAST record -->
+                    <div if:true={ceo.last} class="iterator-info">
+                        <strong>Thanks for visiting</strong>
+                    </div>
+
+                </div>
+
+            </template>
+
+        </div>
+    </lightning-card>
+
+</template>

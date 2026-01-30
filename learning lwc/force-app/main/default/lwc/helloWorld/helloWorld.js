@@ -38,4 +38,18 @@ export default class HelloWorld extends LightningElement {
         this.address.city = event.target.value
     }
 
+    //getters helps us to render customised or manipulated data over html
+
+    users = ["Ayush", "Yadav", "Salesforce"]
+    n1=10
+    n2=20
+
+    get firstuser(){
+        return this.users[0].toUpperCase()
+    }
+
+    get multi(){
+        return this.n1*this.n2
+    }
+
 }
