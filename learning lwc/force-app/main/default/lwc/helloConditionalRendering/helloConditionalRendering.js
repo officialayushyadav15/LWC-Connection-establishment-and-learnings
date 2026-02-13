@@ -1,33 +1,15 @@
-<template>
-    <lightning-card title="Conditional Rendering">
-        <div class="slds-var-m-around_medium">
-            <lightning-button
-                variant="brand"
-                label="Show Data"
-                title="Show Data"
-                onclick={handleClick}
-                class="slds-var-m-left_x-small">
-            </lightning-button>
+import { LightningElement } from 'lwc';
 
-            <template if:true={isVisible}>
-                <div>
-                    Welcome I am Ayush Yadav Learning LWC
-                </div>
-            </template>
-            <template if:false={isVisible}>
-                <div>
-                    Data is hidden click on show data
-                </div>
-            </template>
+export default class HelloConditionalRendering extends LightningElement {
+    isVisible = false;
+    helloMethod = false;
 
+    handleClick() {
+        this.isVisible = true;
+    }
 
-        <lightning-input type="text" label="Type hello to see data" onkeyup={changeHandler}></lightning-input>
-
-        <template if:true={helloMethod}>
-                <div>
-                    Your answer is right
-                </div>
-            </template>
-        </div>
-    </lightning-card>
-</template>
+    changeHandler(event) {
+        const value = event.target.value;
+        this.helloMethod = value === 'hello';
+    }
+}
